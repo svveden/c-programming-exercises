@@ -1,4 +1,4 @@
-/* 01/24/20222 */
+/* 01/24/2022 */
 /* This program takes in a phone number and outputs it in the designated format. */
 
 #include <stdio.h>
