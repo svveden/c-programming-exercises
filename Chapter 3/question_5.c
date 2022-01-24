@@ -1,4 +1,4 @@
-/* 01/24/20222 */
+/* 01/24/2022 */
 /* This program takes in 1-16 written in any order and outputs them in a 4x4 matrix with additional calculations*/
 
 #include <stdio.h>
