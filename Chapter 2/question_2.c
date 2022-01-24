@@ -1,5 +1,6 @@
 /* 01/24/2022 */
 /* This program computes the volume of a sphere */
+/* This is both question 2 & 3 */
 
 #include <stdio.h>
 #define FOUR_THIRDS (4.0f/3.0f)
