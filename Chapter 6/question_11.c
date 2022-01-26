@@ -5,15 +5,12 @@
 #include <stdlib.h>
 
 int main(void){
-	int n;
-	float e = 1;
+	int n, i, j;
+	float e = 1.0f;
 	printf("Enter number for approximating e: ");
 	scanf("%d", &n);
-	for(int i=1;i<=n;i++){
-		for(int j=i; j>0; j--){
-			e += 1/i*j;
-		}
-		test = 0;
+	for(i=1,j=1;i<=n;i++){
+		e += 1.0f / (j*=i);
 	}
 	printf("e: %f", e);
 	return 0;
