@@ -1,12 +1,21 @@
 /* 01/25/2022 */
 /* This program tells you which flight departure is closest to your 24-hour designated time. */
-/* This program was much more difficult than I anticipated and I would like to come back to  */
-/* this and clean this up to be exactly as detailed in the book                              */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void){
+	printf("Departure times:\t  Arrival times:\n");
+	printf("   8:00 A.M.\t\t    10:16 A.M.\n");
+	printf("   9:43 A.M.\t\t    11:52 A.M.\n");
+	printf("  11:19 A.M.\t\t     1:31 P.M.\n");
+	printf("  12:47 A.M.\t\t     3:00 P.M.\n");
+	printf("   2:00 P.M.\t\t     4:08 P.M.\n");
+	printf("   3:45 P.M.\t\t     5:55 P.M.\n");
+	printf("   7:00 P.M.\t\t     9:20 P.M.\n");
+	printf("   9:45 P.M.\t\t    11:58 P.M.\n");
+
+
 	int hours, minutes, flight, flight_taken,converted_time;
 	int flight_1 = 8 * 60 + 00;
 	int flight_2 = 9 * 60 + 43;
@@ -25,66 +34,64 @@ int main(void){
 		flight = converted_time - flight_1;
 		flight_taken = converted_time - flight_2;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_2/60, flight_2%60);
+			printf("Closest departure time is 9:43 A.M., arriving at 11:52 A.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_1/60, flight_1%60);
+			printf("Closest departure time is 8:00 A.M., arriving at 10:16 A.M.\n");
 		}
 	} else if(converted_time >= flight_2 && converted_time <= flight_3){
 		flight = converted_time - flight_2;
 		flight_taken = converted_time - flight_3;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_3/60, flight_3%60);
+			printf("Closest departure time is 11:19 A.M., arriving at 1:31 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_2/60, flight_2%60);
+			printf("Closest departure time is 9:43 A.M., arriving at 11:52 A.M.\n");
 		}
 	} else if(converted_time >= flight_3 && converted_time <= flight_4){
 		flight = converted_time - flight_3;
 		flight_taken = converted_time - flight_4;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_4/60, flight_4%60);
+			printf("Closest departure time is 12:47 A.M., arriving at 3:00 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_3/60, flight_3%60);
+			printf("Closest departure time is 11:19 A.M., arriving at 1:31 P.M.\n");
 		}
 	} else if(converted_time >= flight_4 && converted_time <= flight_5){
 		flight = converted_time - flight_4;
 		flight_taken = converted_time - flight_5;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_5/60, flight_5%60);
+			printf("Closest departure time is 2:00 P.M., arriving at 4:08 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_4/60, flight_4%60);
+			printf("Closest departure time is 12:47 A.M., arriving at 3:00 P.M.\n");
 		}
 	} else if(converted_time >= flight_5 && converted_time <= flight_6){
 		flight = converted_time - flight_5;
 		flight_taken = converted_time - flight_6;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_6/60, flight_6%60);
+			printf("Closest departure time is 3:45 P.M., arriving at 5:55 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_5/60, flight_5%60);
+			printf("Closest departure time is 2:00 P.M., arriving at 4:08 P.M.\n");
 		}
 	} else if(converted_time >= flight_6 && converted_time <= flight_7){
 		flight = converted_time - flight_6;
 		flight_taken = converted_time - flight_7;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_7/60, flight_7%60);
+			printf("Closest departure time is 7:00 P.M., arriving at 9:20 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_6/60, flight_6%60);
+			printf("Closest departure time is 3:45 P.M., arriving at 5:55 P.M.\n");
 		}
 	} else if(converted_time >= flight_7 && converted_time <= flight_8){
 		flight = converted_time - flight_7;
 		flight_taken = converted_time - flight_8;
 		if(abs(flight) > abs(flight_taken)){
-			printf("Closest departure time is: %d:%d\n", flight_8/60, flight_8%60);
+			printf("Closest departure time is 9:45 P.M., arriving at 11:58 P.M.\n");
 		}
 		else{
-			printf("Closest departure time is: %d:%d\n", flight_7/60, flight_7%60);
+			printf("Closest departure time is 7:00 P.M., arriving at 9:20 P.M.\n");
 		}
 	}
 
-	return 0;
-}
