@@ -1,5 +1,5 @@
 /*	02/09/2022 */
-/* This program checks for repeated numbers, then outputs which numbers are repeating*/
+/* This program checks for repeated numbers, then outputs which numbers are repeating */
 
 #include <stdio.h>
 #include <stdbool.h>
