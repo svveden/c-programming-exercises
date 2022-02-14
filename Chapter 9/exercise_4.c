@@ -1,5 +1,5 @@
 /* 02/14/2022 */
-/* This program uses tells you what day of the year a certain date was/is. */
+/* This program uses recursion to tell you what day of the year a certain date was/is. */
 
 #include <stdio.h>
 #include <stdlib.h> 
