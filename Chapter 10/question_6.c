@@ -65,7 +65,7 @@ void menu(void){
 void push(int letter){
 	if(is_full()){
 		printf("Stacks full, try popping something.\n");
-		return;
+		exit(0);
 	}
 	contents[top++] = letter;
 	printf("Pushed %d onto the stack!\n", letter);
@@ -74,6 +74,7 @@ void push(int letter){
 int pop(void){
 	if(is_empty()){
 		printf("Stacks empty, try pushing something.\n");
+		exit(0);
 		return 0;
 	}
 	printf("Popping %d\n", contents[--top]);
