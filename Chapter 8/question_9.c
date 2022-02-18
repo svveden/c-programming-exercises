@@ -1,72 +1,95 @@
-/* 02/09/2022 */
+/* 02/18/2022 */
+/* This program creates a random walk on a 10x10 grid from A -> Z */
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
+#include <stdbool.h>
+
+void initialize(char a[][10], int n);
+void initialize_random(void);
+void walker(char a[][10], int n);
+void print_walk(char a[][10], int n);
+
 int main(void){
-	char letter = 'A', 
-         grid[10][10] = {0};
-    int i = 0,
-        j = 0,
-        up = 0, 
-        down = 0, 
-        left = 0,
-        right = 0,
-        move = 0;
-    grid[i][j] = letter++;
-
-    srand((unsigned) time(NULL));
-	while (letter <= 'Z') {
-        up = down = left = right = move = 0;
-
-        if (j + 1 < 10 && grid[i][j + 1] == 0)
-            up = 1;
-        if (j - 1 >= 0 && grid[i][j - 1] == 0)
-            down = 1;
-        if (i + 1 < 10 && grid[i + 1][j] == 0)
-            right = 1;
-        if (i - 1 >= 0 && grid[i - 1][j] == 0)
-            left = 1;
-
-        if (up + down + left + right == 0)
-            break;
-
-        move = rand() % 4;
-		switch(move){
-			case 0:
-				if(up){
-					grid[i][++j] = letter++;
-					break;
-				}
-			case 1:
-				if(down){
-					grid[i][--j] = letter++;
-					break;
-				}
-			case 2:
-				if(right){
-					grid[++i][j] = letter++;
-					break;
-				}
-			case 3:
-				if(left){
-					grid[--i][j] = letter++;
-					break;
-				}
-			default:
-				break;
-		}
-	}
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            if (grid[i][j] == 0) 
-                grid[i][j] = '.';
-            printf("%c ", grid[i][j]);
-        }
-        printf("\n");
-    }
-    
-    return 0;
+	char walk[10][10];
+	initialize_random();
+	initialize(walk, 10);
+	walker(walk, 10);
+	print_walk(walk, 10);
+	return 0;
 }
 
-  
+void initialize_random(void){
+	srand((unsigned) time(NULL));
+}
+void initialize(char a[][10], int n){
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < n; j++){
+			a[i][j] = '.';
+		}
+	}
+}
+
+void walker(char a[][10], int n){
+	bool up = true, down = true, left = true, right = true;
+	char letter = 'A';
+	int move;
+	a[0][0] = letter;
+	int i = 0, j = 0;
+	letter++;
+	while(letter != 'Z'+1){
+		if(up == false && down == false && left == false && right == false){
+			return;
+		}
+		move = rand() % 4;
+		if(move == 0){ //up
+			if(a[i-1][j] == '.'){
+				a[--i][j] = letter;
+				letter++;
+				up = down = left = right = true;
+			}else{
+				up = false;
+			}
+		}
+		if(move == 1){ //down
+			if(a[i+1][j] == '.'){
+				a[++i][j] = letter;
+				letter++;
+				up = down = left = right = true;
+			}
+			else{
+				down = false;
+			}
+		}
+		if(move == 2 && j != 9){ //right
+			if(a[i][j+1] == '.'){
+				a[i][++j] = letter;
+				letter++;
+				up = down = left = right = true;
+			}
+			else{
+				right = false;
+			}
+		}
+		if(move == 3 && j != 0){ //left
+			if(a[i][j-1] == '.'){
+				a[i][--j] = letter;
+				letter++;
+				up = down = left = right = true;
+			}
+			else{
+				left = false;
+			}
+		}
+	}
+}
+
+void print_walk(char a[][10], int n){
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < n; j++){
+			printf("%c ", a[i][j]);
+		} printf("\n");
+	}
+}
+
