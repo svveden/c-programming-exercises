@@ -1,7 +1,5 @@
 /* 01/24/2022 */
 /* This program computes the loan after payments */
-/* Currently not working, off by a few dollars, also only does one month not three */
-/* Will come back to this later */
 
 #include <stdio.h>
 
@@ -16,8 +14,16 @@ int main(void){
 	scanf("%f", &payment);
 	interest_rate=interest_rate/100;
 	interest_rate=interest_rate/12;
-	remaining = (loan-payment)*interest_rate;
-	remaining = remaining + (loan-payment);
-	printf("Balance remaining after first payment: %.2f", remaining);
+	remaining = (loan - payment);
+	remaining += loan * interest_rate;
+	printf("Balance remaining after first payment: %.2f\n", remaining);
+	loan = remaining;
+	remaining = (loan - payment);
+	remaining += loan * interest_rate;
+	printf("Balance remaining after second payment: %.2f\n", remaining);
+	loan = remaining;
+	remaining = (loan - payment);
+	remaining += loan * interest_rate;
+	printf("Balance remaining after third payment: %.2f\n", remaining);
 	return 0;
 }
