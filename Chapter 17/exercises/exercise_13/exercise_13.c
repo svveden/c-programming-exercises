@@ -6,7 +6,7 @@ struct node *insert_into_ordered_list(struct node *list, struct node *new_node){
 		}
 		pos = &list->next;
 	}
-	new_node->next = *pp;
+	new_node->next = *pos;
 	*pos = new_node;
 	return list;
 }
