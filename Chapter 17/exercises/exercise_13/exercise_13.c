@@ -1,3 +1,6 @@
+/* 03/03/2022 */
+/* Insert updated */
+
 struct node *insert_into_ordered_list(struct node *list, struct node *new_node){
 	struct node **pos = &list;
 	while(list != NULL){

@@ -1,4 +1,4 @@
-/* 03/04/2022 */
+/* 03/03/2022 */
 /* Pointer to functions */
 
 int sum(int (*f)(int), int start, int end){

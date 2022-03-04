@@ -1,4 +1,4 @@
-/* 03/03/2020 */
+/* 03/01/2020 */
 /* Parts Database Program */
 
 #include <stdio.h>
@@ -10,8 +10,7 @@
 #endif
 
 int main(void){
-	inventory = malloc(sizeof(struct part) * INITIAL_PARTS);
-	char ans; 
+	char ans;
 	printf(" ////////////////////////////////////////////////////////////////////////\n");
 	printf(" \
 /     _   _    ____  _____ ____  ____    ____   _    ____ _____ ____   /\n \
@@ -53,6 +52,11 @@ int main(void){
 				break;
 			case 'q':
 				exit(0);
+			case 'e':
+				printf("Enter part number: ");
+				scanf("%d", &number);
+				erase(number);
+				break;
 			default:
 				printf("Invalid choice.");
 		}

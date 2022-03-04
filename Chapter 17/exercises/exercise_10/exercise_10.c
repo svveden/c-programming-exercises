@@ -1,3 +1,6 @@
+/* 03/03/2022 */
+/* Print part with pointers */
+
 void print_part(struct part *p){
 	printf("Part number: %d\n", p->number);
 	printf("Part name: %s\n", p->name);

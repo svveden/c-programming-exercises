@@ -1,3 +1,6 @@
+/* 03/03/2022 */
+/* Count occurences */
+
 int count_occurences(struct node *list, int n){
 	int count = 0;
 	while(list != NULL){

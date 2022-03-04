@@ -1,4 +1,4 @@
-/* 03/04/2022 */
+/* 03/03/2022 */
 /* delete_from_list updated with pointer to pointer */
 
 #include <stdlib.h>

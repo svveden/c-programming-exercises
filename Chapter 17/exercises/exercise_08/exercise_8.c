@@ -1,4 +1,4 @@
-/* 03/04/2022 */
+/* 03/03/2022 */
 /* Stack with struct pointers */
 
 #include <stdio.h>
