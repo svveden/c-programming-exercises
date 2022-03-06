@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack_adt_3.h"
+#include "stack_adt_2.h"
 
 #define STACK_SIZE 100
 
@@ -67,8 +67,4 @@ Item pop(Stack s){
 	s->top = old_top->next;
 	free(old_top);
 	return i;
-}
-
-Item peak(Stack s){
-	return s->top->data;
 }

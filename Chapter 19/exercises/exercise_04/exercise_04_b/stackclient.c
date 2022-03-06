@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stack_adt_3.h"
+#include "stack_adt_2.h"
 
 int main(void){
 	Stack s1, s2;
@@ -10,10 +10,8 @@ int main(void){
 
 	push(s1, 1);
 	push(s1, 2);
-	printf("PEAK %d\n", peak(s1));
 
 	n = pop(s1);
-	printf("PEAK %d\n", peak(s1));
 	printf("Popped %d from s1\n", n);
 	push(s2, n);
 	n = pop(s1);

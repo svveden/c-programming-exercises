@@ -14,6 +14,5 @@ bool is_empty(Stack s);
 bool is_full(Stack s);
 void push(Stack s, Item i);
 Item pop(Stack s);
-Item peak(Stack s);
 
 #endif

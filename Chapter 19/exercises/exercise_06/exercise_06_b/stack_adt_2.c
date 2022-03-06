@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack_adt_3.h"
+#include "stack_adt_2.h"
 
 #define STACK_SIZE 100
 
-struct node{
-	Item data;
-	struct node *next;
-};
-
 struct stack_type{
-	struct node *top;
+	Item *contents;
+	int top;
+	int size;
 };
 
 static void terminate(const char *message){
@@ -23,52 +20,47 @@ Stack create(int size){
 	if(s==NULL){
 		terminate("Error in create: stack could not be created");
 	}
-	s->top = NULL;
+	s->contents = malloc(size * sizeof(Item));
+	if(s->contents == NULL){
+		free(s);
+		terminate("Error in create: stack could not be created.");
+	}
+	s->top = 0;
+	s->size = size;
 	return s;
 }
 
 void destroy(Stack s){
-	make_empty(s);
+	free(s->contents);
 	free(s);
 }
 
 void make_empty(Stack s){
-	while(!is_empty(s)){
-		pop(s);
-	}
+	s->top = 0;
 }
 
 bool is_empty(Stack s){
-	return s->top == NULL;
+	return s->top == 0;
 }
 
 bool is_full(Stack s){
-	return false;
+	return s->top == s->size;
 }
 
 void push(Stack s, Item i){
-	struct node *new_node = malloc(sizeof(struct node));
-	if(new_node == NULL){
+	if(is_full(s)){
 		terminate("Error in push: stack is full.");
 	}
-	new_node->data = i;
-	new_node->next = s->top;
-	s->top = new_node;
+	s->contents[s->top++] = i;
 }
 
 Item pop(Stack s){
-	struct node *old_top;
-	Item i;
 	if(is_empty(s)){
 		terminate("Error in pop: stack is empty");
 	}
-	old_top = s->top;
-	i = old_top->data;
-	s->top = old_top->next;
-	free(old_top);
-	return i;
+	return s->contents[--s->top];
 }
 
 Item peak(Stack s){
-	return s->top->data;
+	return s->contents[s->top];
 }
