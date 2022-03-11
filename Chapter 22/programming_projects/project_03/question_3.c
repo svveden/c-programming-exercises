@@ -2,10 +2,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[]){
+	
 	FILE *fp;
-	int exit_flag = 0;
+	int ch;
 
 	if(argc < 2){
 		printf("usage: canopen filename\n");
@@ -14,15 +16,12 @@ int main(int argc, char *argv[]){
 
 	for(int i = 1; i < argc; i++){
 		if((fp = fopen(argv[i], "r")) == NULL){
-			printf("%s can't be opened\n", argv[i]);
-			exit_flag = 1;
-		} else{
-			printf("%s can be opened\n", argv[i]);
-			fclose(fp);
+			printf("\n%s can't be opened\n", argv[i]);
+			exit(EXIT_FAILURE);
 		}
+		while((ch = fgetc(fp)) != EOF){
+			printf("%c", ch);
+		}
+			fclose(fp);
 	}
-	if(exit_flag == 1){
-		exit(EXIT_FAILURE);
-	}
-	return 0;
 }
